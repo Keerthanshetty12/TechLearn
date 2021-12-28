@@ -1,0 +1,42 @@
+<div class='activity'>
+  <div *ngIf='failMessage==null'>
+      <table class='table'>
+      Activity Id:
+      <input class='form-control'  [(ngModel)]="activity.activityId"  readonly />
+    
+    
+      Activity Name:
+      <input class="form-control"  [(ngModel)]="activity.activityName" />
+    
+      Start Date:
+      <input class="form-control" [(ngModel)]="activity.startDate"  />
+      
+      End Date:
+      <input class="form-control" [(ngModel)]="activity.endDate"  />
+     
+      Duration:
+      <input class="form-control" [(ngModel)]="activity.duration"  />
+     </table> 
+      <button (click)='update()' class='btn btn-success btn-block'>Update</button>
+      <button class="btn btn-danger btn-block" (click)="gotoList()">Cancel</button>
+
+    </div>
+    <div *ngIf='failMessage != null'>
+        {{failMessage}}
+    </div>
+
+    <!-- Below message to be clicked to navigate back to emp-list component-->
+    <div *ngIf='message != null' [ngClass]='msgClass' (click)='gotoList()'>
+        {{message}}! Click to go back
+    </div>
+
+    <div *ngIf='validationMessages != null' (click)='validationMessages=null'>
+
+        <p *ngFor='let msg of validationMessages' class='alert alert-danger'>
+            {{msg}}
+        </p>
+    </div>
+</div>
+    
+    
+    

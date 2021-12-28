@@ -1,0 +1,51 @@
+<p style="text-align: center">Create New Activity Data</p>
+
+<form #activityForm="ngForm" (submit)="saveData(activityForm.value)">
+  Activity Id:
+  <input class="form-control" ngModel name="activityId" #tactivityId="ngModel" required pattern="[1-9]" />
+  <div *ngIf="tactivityId.touched && tactivityId.invalid">
+    <div *ngIf="tactivityId.errors.required" class="alert alert-danger">
+      Activity Id is required
+    </div>
+    <div *ngIf="tactivityId.errors.pattern" class="alert alert-danger">
+      Activity Id should be one numeric digit(first digt non-zero)
+    </div>
+  </div>
+ Activity Name:
+  <input class="form-control" ngModel name="activityName" #tactivityName="ngModel"  required minlength="3" />
+  <div *ngIf="tactivityName.touched && tactivityName.invalid">
+    <div *ngIf="tactivityName.errors.required" class="alert alert-danger">
+      Activity Name is required
+    </div>
+    <div *ngIf="tactivityName.errors.pattern" class="alert alert-danger">
+      Activity Name should have minimum 3 letters
+    </div>
+  </div>
+  Start Date:
+  <input type="date" class="form-control"  ngModel name='startDate' #tstartDate required >
+    
+  End Date:
+  <input type="date" class="form-control"  ngModel name='endDate' #tendDate required >
+  Duration:
+  <input type='number' class="form-control" ngModel  name='duration' #tduration='ngModel' required min='10' />
+  <div   *ngIf='tduration.touched && tduration.invalid'>
+    <div *ngIf='tduration.errors.required' class='alert alert-danger'>
+        Duration field cannot be empty
+    </div>
+    <div *ngIf='tduration.errors.minlength' class='alert alert-danger'>
+        Duration should be minimum 10
+    </div>
+</div>
+  <div>
+    <button class="btn btn-primary btn-block"  type="submit"  [disabled]="activityForm.invalid" > Save </button>
+    <button class="btn btn-danger btn-block" (click)="gotoList()">Cancel</button>
+
+  </div>
+</form>
+<p *ngIf="message != null" [ngClass]='msgClass' (click)='gotoList()' >
+   {{ message }}! Click to Activity List
+</p>
+
+<div *ngIf="validationMessages" class='alert-alert-danger' (click)="validationMessages = null">
+  <p *ngFor="let message of validationMessages">{{ message }}</p>
+</div>
