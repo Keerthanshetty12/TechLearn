@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-import com.rest.enums.Badge;
 import com.rest.enums.Role;
 
 @Entity
@@ -29,6 +27,7 @@ public class User {
 	@Column(name = "emailid",length = 30)
 	private String emailId;
 	
+
 	private Role role;
 
 	public User() {
@@ -96,6 +95,7 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+	
 	
 	
 

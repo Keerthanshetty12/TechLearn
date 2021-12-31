@@ -1,0 +1,89 @@
+<body class="body">
+<div class='user'>
+    <h3 style="text-align:center"> Create New User</h3>
+    <form #userForm='ngForm' (submit)='createNew(userForm.value)' *ngIf='!failMessage'>
+        <div class='form-group'>
+            <label for='uid'>User Name:</label>
+            <input id='uid' class='form-control-inline' type='text' ngModel name='userName' #tuserName='ngModel' required>
+        </div>
+        <div *ngIf='tuserName.touched && tuserName.invalid' class='alert alert-danger'>
+            You missed entering userName.
+        </div>
+
+        <div class='form-group'>
+            <label for='pass'>password:</label>
+            <input id='pass' class='form-control-inline' type='password' ngModel name='password' #tpassword='ngModel' required>
+        </div>
+        <div *ngIf='tpassword.touched && tpassword.invalid' class='alert alert-danger'>
+            You missed entering password.
+        </div>
+
+        <div class='form-group'>
+            <label for='fnm'>First Name:</label>
+            <input id='fnm' class='form-control-inline' type='text' ngModel name='firstName' #tfname='ngModel' required minlength="4"
+                pattern='[A-Za-z ]*'>
+        </div>
+        <div *ngIf='tfname.touched && tfname.invalid'>
+            <div *ngIf='tfname.errors.required' class='alert alert-danger'>
+                Please enter name
+            </div>
+            <div *ngIf='tfname.errors.minlength' class='alert alert-danger'>
+                Name should be minimum 4 letters
+            </div>
+            <div *ngIf='tfname.errors.pattern' class='alert alert-danger'>
+                Name should only contain alphabets 
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <label for='lnm'>Last Name:</label>
+            <input id='lnm' class='form-control-inline' type='text' ngModel name='lastName' #tlname='ngModel' required minlength="4"
+                pattern='[A-Za-z ]*'>
+        </div>
+        <div *ngIf='tlname.invalid'>
+            <div *ngIf='tlname.errors.pattern' class='alert alert-danger'>
+                Name should only contain alphabets 
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <label for='email'>Email id:</label>
+            <input id='email' class='form-control-inline' type='email' ngModel name='emailId' #temail='ngModel' required >
+        </div>
+        <div *ngIf='temail.touched && temail.invalid' class='alert alert-danger'>
+            Please enter Email id.
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-text" for="inputGroupSelect01">Role:</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" ngModel name='role' #trole='ngModel' required>
+              <option value="ADMIN">ADMIN</option>
+              <option value="MODERATOR">MODERATOR</option>
+              <option value="USER">USER</option>
+            </select>
+          </div>
+        <div *ngIf='trole.touched && trole.invalid' class='alert alert-danger'>
+            Please enter user's Role.
+        </div>
+
+        <button type='submit' class='btn btn-primary btn-block' [disabled]='userForm.invalid'>Submit</button>
+    </form>
+
+    
+    <div *ngIf='failMessage'>
+        <h3>{{failMessage}}</h3>
+      </div>
+
+    <p *ngIf='message != null' [ngClass]='msgClass' (click)='gotoList()'>{{message}}! Click here to Goto List </p>
+   
+    <div *ngIf='validationMessages != null' (click)='validationMessages=null'>
+
+        <p *ngFor='let msg of validationMessages' class='alert alert-danger'>
+            {{msg}}
+        </p>
+    </div>
+
+</div>
+</body>

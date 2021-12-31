@@ -1,0 +1,51 @@
+
+<body class="bodytag">
+<div  class='container' >
+    <h3 style="text-align: center">Users List</h3>
+    <table class="table table-striped" *ngIf='!failMessage'>
+      <thead>
+        <tr>
+          <th>USERNAME</th>
+          <th>PASSWORD</th>
+          <th>FIRST_NAME</th>
+          <th>LAST_NAME</th>
+          <th>EMAIL_ID</th>
+          <th>ROLE</th>
+          <th>ACTION</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of user">
+          <td>{{ u.userName }}</td>
+          <td>{{ u.password }}</td>
+          <td>{{ u.firstName }}</td>
+          <td>{{ u.lastName }}</td>
+          <td>{{ u.emailId }}</td>
+          <td>{{ u.role }}</td>
+          <td>
+           
+            <button class='btn btn-danger mr-3' (click)='delete(u.userName)' data-toggle="modal" data-target="#myModal" >
+              <i class="fa fa-trash"></i>
+              
+             
+            </button>
+            <a [routerLink]="['/update',u.userName]" class='btn btn-primary'>
+              <i class="fa fa-edit"></i>
+            </a>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf='failMessage'>
+      <h3>{{failMessage}}</h3>
+    </div>
+
+    <p *ngIf="message" class="alert alert-danger"  (click)="message = null" >
+      {{ message }}
+    </p>
+  </div>
+  
+</body>
+

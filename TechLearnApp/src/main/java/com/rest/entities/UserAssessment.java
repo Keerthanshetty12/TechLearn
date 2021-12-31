@@ -1,6 +1,5 @@
 package com.rest.entities;
 
-import com.rest.entities.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

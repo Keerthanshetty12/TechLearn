@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.rest.exceptions.ActivityNotFoundException;
 import com.rest.exceptions.DuplicateEntityException;
+import com.rest.exceptions.InvalidUserException;
 import com.rest.exceptions.LoginException;
 import com.rest.exceptions.NoDataException;
 import com.rest.exceptions.NotAuthorizedException;
 import com.rest.exceptions.UserNotFoundException;
-
+import org.postgresql.util.*;
 @ControllerAdvice
 public class AllExceptionshandler {
 	
@@ -47,6 +48,15 @@ public class AllExceptionshandler {
 		errors.put("timestamp",LocalDate.now());
 		
 		return new ResponseEntity<Map>(errors,HttpStatus.BAD_REQUEST);
+	}
+
+	@ExceptionHandler(InvalidUserException.class)
+	public ResponseEntity<?> handleUserDataErrors(InvalidUserException ex) {
+
+		Map<String, Object> errorBody = new LinkedHashMap<>();
+		errorBody.put("errorMessage", ex.getMessage());
+
+		return new ResponseEntity<>(errorBody, HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(LoginException.class)
@@ -91,6 +101,15 @@ public class AllExceptionshandler {
 	public ResponseEntity<?> handleSameEntityError(DuplicateEntityException de){
 		Map<String,Object> errors=new LinkedHashMap<>();
 		errors.put("error","duplicate entity error");
+		errors.put("details",de.getMessage());
+		errors.put("timestamp",LocalDate.now());
+		
+		return new ResponseEntity<Map>(errors,HttpStatus.BAD_REQUEST);
+	}
+	@ExceptionHandler(PSQLException.class)
+	public ResponseEntity<?> handlePSQLError(PSQLException de){
+		Map<String,Object> errors=new LinkedHashMap<>();
+		errors.put("error","contraint voilation error");
 		errors.put("details",de.getMessage());
 		errors.put("timestamp",LocalDate.now());
 		

@@ -46,6 +46,10 @@ public class DataInit implements CommandLineRunner {
 		User u3=userRepo.save(new User("nagaraj","sir300","nagaraj","kumar","dsnagaraj@gmail.com",Role.USER));
 		User u2=userRepo.save(new User("kavita","mam200","kavita","arora","kavitaArora@gmail.com",Role.MODERATOR));
 		User u1=userRepo.save(new User("Ramanakv","sir100","Ramana","Reddy","ramanakv@ymail.com",Role.ADMIN));
+		User u4=userRepo.save(new User("kishor","kishor","kishor","magar","kishormagar934@gmail.com",Role.ADMIN));
+		User u5=userRepo.save(new User("abc","abc","arun","kumar","arunkumar@gmail.com",Role.USER));
+		User u6=userRepo.save(new User("mahesh","mahesh","mahesh","aleti","maheshaleti@gmail.com",Role.USER));
+		
 		
 		logger.info("3 rows inserted into user table");
 	
@@ -53,22 +57,33 @@ public class DataInit implements CommandLineRunner {
 		activityRepo.save(a1);
 		Activity a2=new Activity(2,"Sql",Date.valueOf("2015-2-10"),Date.valueOf("2015-4-12"),60);
 		activityRepo.save(a2);
-		logger.info("2 rows inserted into Activity table");
+		Activity a3=new Activity(3,"Python",Date.valueOf("2019-10-12"),Date.valueOf("2019-12-12"),62);
+		activityRepo.save(a3);
+		logger.info("3 rows inserted into Activity table");
 		
 		Assessment b1=assessmentRepo.save(new Assessment(10,"java1",Date.valueOf("2013-12-10"),2f,"MCQ",a1));
 		Assessment b2=assessmentRepo.save(new Assessment(20,"sql1",Date.valueOf("2015-5-10"),3f,"MCQ",a2));
 		Assessment b3=assessmentRepo.save(new Assessment(30,"java2",Date.valueOf("2014-1-2"),3f,"lab",a1));
+		Assessment b4=assessmentRepo.save(new Assessment(40,"sql",Date.valueOf("2014-1-2"),2f,"MCQ",a1));
+		
 		logger.info("3 rows inserted into assessment table");
 		
 		userAssessmentRepo.save(new UserAssessment(80.0f,Badge.GOLD,u2,b1));
 		userAssessmentRepo.save(new UserAssessment(89.0f,Badge.DIAMOND,u1,b3));
 		userAssessmentRepo.save(new UserAssessment(45.0f,Badge.BRONZE,u3,b2));
+		userAssessmentRepo.save(new UserAssessment(45.0f,Badge.BRONZE,u4,b4));
+		userAssessmentRepo.save(new UserAssessment(45.0f,Badge.BRONZE,u3,b3));
+		
 		logger.info("3 rows inserted into userAssessment table");
 		
 		userActivityRepo.save(new UserActivity(Date.valueOf("2013-12-10"),Status.PASS,u2,a1));
+		userActivityRepo.save(new UserActivity(Date.valueOf("2013-12-10"),Status.PASS,u2,a2));
+		
 		userActivityRepo.save(new UserActivity(Date.valueOf("2013-12-10"),Status.FAIL,u1,a2));
 		userActivityRepo.save(new UserActivity(Date.valueOf("2013-12-10"),Status.PASS,u3,a1));
-		logger.info("3 rows inserted into userActivity table");
+		userActivityRepo.save(new UserActivity(Date.valueOf("2013-12-10"),Status.PASS,u4,a2));
+		userActivityRepo.save(new UserActivity(Date.valueOf("2013-12-10"),Status.PASS,u3,a3));
+		logger.info("5 rows inserted into userActivity table");
 		
 	}
 }

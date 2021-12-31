@@ -33,7 +33,7 @@ public class UserAssessmentDaoImplementation implements UserAssessmentDao {
 
 	@Override
 	public void saveUserAssessment(UserAssessment u) throws UserNotFoundException {
-		if (!userAssessmentRepository.existsById(u.getUserAssessmentId()))
+		if (userAssessmentRepository.existsById(u.getUserAssessmentId()))
 			throw new UserNotFoundException("Assessment with " + u.getUserAssessmentId() + " not found to save");
 		userAssessmentRepository.save(u);
 	}

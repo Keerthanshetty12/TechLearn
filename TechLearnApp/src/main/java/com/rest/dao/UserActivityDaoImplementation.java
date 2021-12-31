@@ -33,8 +33,8 @@ public class UserActivityDaoImplementation implements UserActivityDao {
 
 	@Override
 	public void saveUserActivity(UserActivity ua) throws ActivityNotFoundException {
-		if (userActivityRepository.existsById(ua.getUserAvtivityId()))
-			throw new ActivityNotFoundException("User with ID " + ua.getUserAvtivityId() + " already exists");
+		if (userActivityRepository.existsById(ua.getUserActivityId()))
+			throw new ActivityNotFoundException("User with ID " + ua.getUserActivityId() + " already exists");
 		userActivityRepository.save(ua);
 
 	}

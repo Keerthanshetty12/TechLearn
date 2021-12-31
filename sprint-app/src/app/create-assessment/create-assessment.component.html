@@ -1,0 +1,53 @@
+<body class="bodytag">
+<p style="text-align: center">Create New Assessment </p>
+
+<form #assessmentForm='ngForm' (submit)='saveData(assessmentForm.value)'>
+
+Assessment Id:
+<input class='form-control' ngModel name='assessmentId' #tassessmentId='ngModel' required pattern='[1-9][0-9]{1}'/>
+<div  *ngIf='tassessmentId.touched && tassessmentId.invalid'>
+    <div *ngIf='tassessmentId.errors.required' class='alert alert-danger'>
+       Assessment Id is required
+
+    </div>
+    <div *ngIf='tassessmentId.errors.pattern' class='alert alert-danger'>
+        Assessment Id should be 3 numeric digits(first digit non zero)
+
+    </div>
+</div>
+Assessment Name:
+<input type='text' class='form-control' ngModel name='assessmentName' #tassessmentname='ngModel' required minlength='5'/>
+<div  *ngIf='tassessmentname.touched && tassessmentname.invalid'>
+    <div *ngIf='tassessmentname.errors.required' class='alert alert-danger'>
+        Assessment name is required
+
+    </div>
+    <div *ngIf='tassessmentname.errors.minlength' class='alert alert-danger'>
+        Assessment name should be minimum 5
+
+    </div>
+</div>
+
+Release Date:
+ 
+<input type='date' class='form-control' ngModel name='releaseDate' required/>
+
+Duration:
+
+<input type='number' class='form-control' ngModel name='duration' required/>
+
+Type:
+
+<input type='text' class='form-control' ngModel name='type' required/>
+
+<div>
+    <button class='btn btn-primary btn-block' type='submit' [disabled]='assessmentForm.invalid'>Save</button>
+    <button class='btn btn-danger btn-block' (click)='gotoList()'>Cancel</button>
+</div>
+</form>
+<p *ngIf='message != null' [ngClass]='msgClass' (click)='gotoList()'>{{message}}! Click to Goto List </p>
+
+ <div *ngIf="validationMessages" class='alert-alert-danger' (click)="validationMessages = null">
+    <p *ngFor="let message of validationMessages">{{ message }}</p>
+  </div>
+</body>

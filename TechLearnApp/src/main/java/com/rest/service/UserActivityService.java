@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.rest.entities.Activity;
 import com.rest.entities.UserActivity;
-import com.rest.entities.UserAssessment;
 
 @Service
 public interface UserActivityService {

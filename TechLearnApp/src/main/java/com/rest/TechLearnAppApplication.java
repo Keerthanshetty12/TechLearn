@@ -3,6 +3,7 @@ package com.rest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -12,12 +13,14 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@EnableSwagger2
+//@EnableSwagger2
+@CrossOrigin(origins = "http://localhost:4200")
 public class TechLearnAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TechLearnAppApplication.class, args);
 	}
+	/*
 	@Bean
 	public Docket productApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
@@ -44,5 +47,5 @@ public class TechLearnAppApplication {
         );
 		return apiInfo;
 }
-
+*/
 }

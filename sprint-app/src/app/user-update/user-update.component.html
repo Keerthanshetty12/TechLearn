@@ -1,0 +1,48 @@
+<div class='user'>
+    <div *ngIf='failMessage==null'>
+        <table class='table'>
+            <tr>
+                <td>userName:</td>
+                <td><input type='text' class='form-control' [(ngModel)]='user.userName' ></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type='text' class='form-control' [(ngModel)]='user.password' ></td>
+            </tr>
+            <tr>
+                <td>first Name:</td>
+                <td><input type='text' class='form-control' [(ngModel)]='user.firstName' ></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type='text' class='form-control' [(ngModel)]='user.lastName' ></td>
+            </tr>
+            <tr>
+                <td>email Id:</td>
+                <td><input type='text' class='form-control' [(ngModel)]='user.emailId'></td>
+            </tr>
+            <tr>
+                <td>Role:</td>
+                <td><input type='text' class='form-control' [(ngModel)]='user.role' readonly></td>
+            </tr>
+
+        </table>
+        <button (click)='update()' class='btn btn-success btn-block'>Update</button>
+
+    </div>
+    <div *ngIf='failMessage != null'>
+        {{failMessage}}
+    </div>
+
+    <!-- Below message to be clicked to navigate back to emp-list component-->
+    <div *ngIf='message != null' [ngClass]='msgClass' (click)='gotoList()'>
+        {{message}}! Click to go back
+    </div>
+
+    <div *ngIf='validationMessages != null' (click)='validationMessages=null'>
+
+        <p *ngFor='let msg of validationMessages' class='alert alert-danger'>
+            {{msg}}
+        </p>
+    </div>
+</div>

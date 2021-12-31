@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rest.entities.User;
-import com.rest.enums.Badge;
 import com.rest.exceptions.DuplicateEntityException;
 import com.rest.exceptions.NoDataException;
 import com.rest.exceptions.UserNotFoundException;

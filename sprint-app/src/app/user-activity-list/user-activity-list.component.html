@@ -1,0 +1,28 @@
+
+<body class="bodytag">
+  <div  class='container'>
+    <h3 style="text-align: center">UserActivity List</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>    
+            <th>User</th>
+            <th>Activity Name</th>
+            <th>StartDate</th>
+            <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of useractivity">
+            <td>{{x.user.firstName}}</td> 
+            <td>{{x.activity.activityName}}</td>
+            <td>{{x.startDate}}</td>
+            <td>{{x.status}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="message" class="alert alert-danger"  (click)="message = null" >
+      {{ message }}
+    </p>
+ 
+  </div>
+</body>

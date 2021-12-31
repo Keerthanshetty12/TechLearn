@@ -1,0 +1,26 @@
+.listdiv{
+    border:solid 3px blue;
+    border-radius: 10px;
+    width:auto;
+    float:left;
+}
+
+.updatediv{
+    margin-left:10px;
+    border:solid 3px blue;
+    border-radius: 10px;
+    width:300px;
+    float:left;
+}
+
+.edit-icon{
+    background-image: url("/assets/delete-icon.jpg");
+    background-repeat:no-repeat;
+    background-size: 50%;
+}
+
+.bodytag{
+    background-color: ivory;
+    background-size: auto;
+ 
+}

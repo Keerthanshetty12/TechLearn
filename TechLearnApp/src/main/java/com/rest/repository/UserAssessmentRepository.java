@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.rest.entities.Assessment;
-import com.rest.entities.User;
 import com.rest.entities.UserAssessment;
 
 @Repository

@@ -1,0 +1,22 @@
+body{
+    background-image: url("/assets/home-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-color: black;
+    border:10px;
+    background-color: none !important;
+    margin: 0px;
+    padding:10px;
+    text-align: left;
+    height:100%;
+    width:100%;
+}
+.img{
+    width:100px;
+    height:100px;
+    align-content: left;
+    background-image: url("/assets/home-img.jpg");
+}
+.p{
+    height: 500px;
+}

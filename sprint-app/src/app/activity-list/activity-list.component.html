@@ -1,0 +1,38 @@
+<body class="bodytag">
+<div  class='container'>
+    <h3 style="text-align: center">Activity List</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ACTIVITY ID</th>
+          <th>ACTIVITY NAME</th>
+          <th>START DATE</th>
+          <th>END DATE</th>
+          <th>DURATION</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of activity">
+          <td>{{ a.activityId }}</td>
+          <td>{{ a.activityName }}</td>
+          <td>{{ a.startDate}}</td>
+          <td>{{ a.endDate}}</td>
+          <td>{{ a.duration}}</td>
+          <td class='btn-group'>
+            <a [routerLink]="['/updateActivity',a.activityId]" class='btn btn-outline-primary mr-2'><i class="fa fa-edit"></i>Update</a>
+            <button class="btn btn-outline-danger" (click)="delete(a.activityId)" > <i class="fa fa-trash"></i>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf='failMessage != null'>
+      <h3>{{failMessage}}</h3>
+  </div>
+
+  <p *ngIf='message != null' class='alert alert-danger' (click)='message=null'>
+    {{message}}
+</p>
+ 
+  </div>
+</body>

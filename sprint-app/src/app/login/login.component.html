@@ -1,0 +1,35 @@
+<html class='main'>
+  <title>
+    Login page
+  </title>
+<body class='bodyArea' style="background-color:transparent !important">
+<div class='container outline' >
+  <form #form="ngForm" (ngSubmit)="signIn(form.value)">
+    <h2>Login</h2>
+      
+    <div class="form-group">
+      <label for="user">User Name</label>
+      <input type="text" id="user" name="username" ngModel #username='ngModel' class="form-control" required placeholder="User Name">
+    </div>
+    <div class='form-group'>
+      <label for="pwd" >Password</label>
+      <input type="password" id="pwd" name="password" ngModel #password='ngModel'  class="form-control" required placeholder="Password">
+    </div>
+    <div class="sign-in">
+    <button type="submit" class="btn sign" [disabled]='form.invalid' >Sign in
+      <img src="assets/images/login-lock.gif" alt="Login" height="100px" width="100px" style="border-radius: 50%;" >
+    </button>
+    </div>
+  </form>
+  <div *ngIf="message!=null" class="alert alert-danger">{{message}}</div>
+  <div *ngIf='password.touched && password.invalid' class='alert alert-danger'>
+    Password Required
+  </div>
+  <div *ngIf='username.touched && username.invalid' class='alert alert-danger'>
+    User name is Required
+  </div>
+
+</div>
+</body>
+</html>
+  

@@ -1,0 +1,38 @@
+<body class="bodytag">
+<div  class='container'>
+  
+    <h3 style="text-align: center">Assessment List</h3>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+            <th>Assessment Id</th>
+            <th>Assessment Name</th>
+            <th>Release Date</th>
+            <th>Duration</th>
+            <th>Type</th>
+           
+            <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of assessment">
+            <td>{{x.assessmentId}}</td>
+            <td>{{x.assessmentName}}</td>
+            <td>{{x.releaseDate}}</td>
+            <td>{{x.duration}}</td>
+            <td>{{x.type}}</td>
+            
+    
+          <td class='btn-group'>
+           
+            <button class='btn btn-outline-danger' (click)='delete(x.assessmentId)'[disabled]='creating' > <i class="fa fa-trash"></i>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="message" class="alert alert-danger"  (click)="message = null" >
+      {{ message }}
+    </p>
+  </div>
+</body>

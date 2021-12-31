@@ -1,0 +1,47 @@
+input.ng-touched.ng-invalid{
+    border:3px solid red;
+    border-radius: 5px;
+}
+h2{
+    float: center;
+    text-align: center;
+    padding: 20px;
+    color: #e06d0f;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    font-style:normal;
+}
+.bodyArea{
+    background-color: none !important;
+    width:100%;
+    height:100%;
+    background-size: 100%;
+}
+.outline{
+    background-image: url("/sprint-app/src/assets/e-learning.gif");
+    width: 400px;
+    height: 370px;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    margin-left: 60%;
+    margin-top: 3%;
+    margin-bottom: 0%;;
+    padding-bottom: 0%;
+}
+
+.main{
+   
+    font-family: 'Ubuntu', sans-serif;
+}
+.sign {
+    text-align: center;
+    float:inline-end;
+    padding: 20px;
+    color: #030101;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    font-style:normal;
+}

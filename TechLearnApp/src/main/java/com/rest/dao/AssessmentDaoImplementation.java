@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rest.entities.Activity;
 import com.rest.entities.Assessment;
 import com.rest.exceptions.AssessmentNotFoundException;
 import com.rest.exceptions.DuplicateEntityException;
@@ -17,7 +16,7 @@ import com.rest.repository.AssessmentRepository;
 public class AssessmentDaoImplementation implements AssessmentDao {
 	@Autowired
 	AssessmentRepository assessmentRepository;
-
+	
 	@Override
 	public Assessment getAssessment(Integer assessmentId) throws AssessmentNotFoundException {
 
@@ -49,13 +48,13 @@ public class AssessmentDaoImplementation implements AssessmentDao {
 
 	@Override
 	public void saveAssessment(Assessment a) throws DuplicateEntityException {
-		if (!(assessmentRepository.existsById(a.getAssessmentId())))
+		if (assessmentRepository.existsById(a.getAssessmentId()))
 			throw new DuplicateEntityException("Assessment with id " + a.getAssessmentId() + " already exists");
-
+		assessmentRepository.save(a);
 	}
 
 	@Override
-	public List<Assessment> getByName(String assessmentName)throws AssessmentNotFoundException {
+	public List<Assessment> getByName(String assessmentName)throws AssessmentNotFoundException {	
 		return assessmentRepository.getByName(assessmentName);
 	}
 

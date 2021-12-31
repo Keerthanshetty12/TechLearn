@@ -1,0 +1,55 @@
+<body class="bodytag">
+<p style="text-align: center">Create New Useractivity Data</p>
+
+<form #useractivityForm="ngForm" (submit)='saveData(useractivityForm.value)'>
+ 
+  UserActivity No:
+  <input class="form-control" ngModel name="userActivityId" #tuseractivityid="ngModel" />
+
+  Activity Id:
+  <input class="form-control" ngModel name="activity" #tactivityid="ngModel" required pattern="[1-9]" />
+  <div *ngIf="tactivityid.touched && tactivityid.invalid">
+    <div *ngIf="tactivityid.errors.required" class="alert alert-danger">
+      Activity Id is required
+    </div>
+    <div *ngIf="tactivityid.errors.pattern" class="alert alert-danger">
+      Activity Id should be one numeric digit(first digt non-zero)
+    </div>
+  </div>
+
+  User Name:
+  <input type='text' class='form-control' ngModel name='user' #tusername='ngModel' required minlength='3'/>
+  <div  *ngIf='tusername.touched && tusername.invalid'>
+      <div *ngIf='tusername.errors.required' class='alert alert-danger'>
+          User Name is required
+  
+      </div>
+      <div *ngIf='tusername.errors.minlength' class='alert alert-danger'>
+         User Name should be minimum 5
+  
+      </div>
+  </div>
+ status:
+  <input class="form-control" ngModel name="status" #tstatus="ngModel" />
+  <div *ngIf="tstatus.touched && tstatus.invalid">
+    <div *ngIf="tstatus.errors.required" class="alert alert-danger">
+      status is required
+    </div>
+    
+  </div>
+  startDate:
+  <input type="date" class="form-control"  ngModel name="startDate" #tstartDate="ngModel" required />
+  <div>
+    <button class="btn btn-primary btn-block"  type="submit"  [disabled]="useractivityForm.invalid" > Save </button>
+    <button class="btn btn-danger btn-block" (click)="gotoList()">Cancel</button>
+
+  </div>
+</form>
+<p *ngIf="message != null" [ngClass] ='msgClass' (click) = 'gotoList()' >
+   {{ message }} ! click to User Activity List
+</p>
+
+<div *ngIf="validationMessages" class='alert-alert-danger' (click)="validationMessages = null">
+  <p *ngFor="let message of validationMessages">{{ message }}</p>
+</div>
+</body>

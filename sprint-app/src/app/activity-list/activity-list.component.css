@@ -1,0 +1,18 @@
+.listdiv{
+    border:solid 3px blue;
+    border-radius: 10px;
+    width:auto;
+    float:left;
+}
+
+.updatediv{
+    margin-left:10px;
+    border:solid 3px blue;
+    border-radius: 10px;
+    width:300px;
+    float:left;
+}
+.bodytag{
+    background-color: ivory;
+    background-size: auto;
+}

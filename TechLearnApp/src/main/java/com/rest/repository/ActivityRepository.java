@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.rest.entities.Activity;
-import com.rest.entities.User;
 
 @Repository
 public interface ActivityRepository extends JpaRepository<Activity,Integer>{

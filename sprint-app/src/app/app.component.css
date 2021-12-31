@@ -1,0 +1,69 @@
+li{
+    margin-left:10px;
+}
+.btn:hover {
+    background-color: #45b14a;
+  }
+  .nav-item4{
+      float: right;
+    }
+    .navbar{
+      margin: 0%;
+      margin-left: 0%;
+
+    }
+    
+.bodytag{
+  background-image: url(/sprint-app/src/assets/background_img.jpg);
+  background-repeat:no-repeat;
+  background-size: contain;
+  
+}
+  .container{
+     background-color: indigo;
+      background-repeat: no-repeat ;
+      background-size: 100%;
+  }
+   /* Style the header */
+   header {
+    background-image: url(../assets/header-img.jpg);
+    background-size: cover;
+    padding: 45px;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    
+  }
+  
+
+  .logo{
+    width: 100px;
+    height: 80px;
+    display:block;
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    background-image:url(../assets/logo.png) ;
+    background-size: cover;
+    background-color: transparent;
+}
+
+  /* Style the footer */
+  footer {
+    background-color: rgb(223, 240, 245);
+    padding: 10px;
+    text-align: center;
+    color: rgb(185, 178, 178);
+  }
+  .flogo{
+    width: 170px;
+      height: 100px;
+      display:block;
+      position:absolute;
+      background-image:url(../assets/Capgeminipng.png) ;
+      background-size: cover;
+      top:10;
+    border-left-width: 20px;
+     
+     
+  }

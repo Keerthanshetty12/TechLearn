@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.rest.entities.User;
-import com.rest.enums.Badge;
 
 @Service
 public interface UserService {

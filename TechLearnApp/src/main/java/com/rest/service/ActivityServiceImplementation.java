@@ -14,7 +14,12 @@ public class ActivityServiceImplementation implements ActivityService {
 	@Autowired
 	ActivityDao dao;
 
-
+	@Override
+	public Activity getActivity(Integer activityId) {
+		// TODO Auto-generated method stub
+		return dao.getActivity(activityId);
+	}
+	
 	@Override
 	public List<Activity> getAllActivity() {
 		return dao.getAllActivity();
@@ -41,10 +46,6 @@ public class ActivityServiceImplementation implements ActivityService {
 		return dao.getByName(activityName);
 	}
 
-	@Override
-	public Activity getActivity(Integer activityId) {
-		// TODO Auto-generated method stub
-		return dao.getActivity(activityId);
-	}
+	
 
 }

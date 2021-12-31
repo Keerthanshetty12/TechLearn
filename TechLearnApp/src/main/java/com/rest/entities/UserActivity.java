@@ -2,7 +2,6 @@ package com.rest.entities;
 
 import java.sql.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.rest.dao.UserActivityDaoImplementation;
 import com.rest.enums.Status;
+import com.rest.service.UserService;
 
 @Entity
 @Table(name = "useractivity_tbl")
@@ -20,7 +23,7 @@ public class UserActivity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "useractivityid")
-	private Integer userAvtivityId;
+	private Integer userActivityId;
 	private Date startDate;
 	private Status status;
 	
@@ -32,10 +35,8 @@ public class UserActivity {
 	@JoinColumn(name = "activityid")
 	private Activity activity;
 	
-	
 	public UserActivity() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 
@@ -47,15 +48,16 @@ public class UserActivity {
 		this.user = user;
 		this.activity = activity;
 	}
+	
 
 
-	public Integer getUserAvtivityId() {
-		return userAvtivityId;
+	public Integer getUserActivityId() {
+		return userActivityId;
 	}
 
 
-	public void setUserAvtivityId(Integer userAvtivityId) {
-		this.userAvtivityId = userAvtivityId;
+	public void setUserActivityId(Integer userActivityId) {
+		this.userActivityId = userActivityId;
 	}
 
 
@@ -85,7 +87,8 @@ public class UserActivity {
 
 
 	public void setUser(User user) {
-		this.user = user;
+		
+		this.user=user;
 	}
 
 
@@ -95,8 +98,13 @@ public class UserActivity {
 
 
 	public void setActivity(Activity activity) {
-		this.activity = activity;
+		System.out.print(activity);
+		this.activity=activity;
 	}
+
+
+	
+
 	
 	
 }
